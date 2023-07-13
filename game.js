@@ -1,3 +1,6 @@
+uScore = 0;
+cScore = 0;
+
 function getComputerChoice(){
     let options = ["rock","paper","scissors"]
     let choice = Math.floor(Math.random()*3);
@@ -6,12 +9,14 @@ function getComputerChoice(){
 }
 
 function result(cSelect,uSelect){
-    if((cSelect === "rock" && uSelect === "scissors" )||(cSelect === "rcissors" && uSelect === "paper")  || (cSelect === "paper" && uSelect === "rock")){
+    if((cSelect === "rock" && uSelect === "scissors" )||(cSelect === "scissors" && uSelect === "paper")  || (cSelect === "paper" && uSelect === "rock")){
         let output = "You have lost this round! " + cSelect + " beats " + uSelect;
+        cScore ++;
         return output;
     }
     else if((uSelect === "rock" && cSelect === "scissors" )||(uSelect === "scissors" && cSelect === "paper")  || (uSelect === "paper" && cSelect === "rock")){
         let output = "You have won this round! " + uSelect + " beats " + cSelect;
+        uScore++;
         return output;
 
     }
@@ -33,7 +38,15 @@ function game(){
         uSelect = uSelect.toLowerCase();
         let output = result(cSelect,uSelect);
         console.log(output);
-
+        console.log("User Score : " + uScore + " CPU Score : " + cScore);
+    }
+    while(uScore === cScore){
+        console.log("Suddent Death!");
+        let cSelect = getComputerChoice();
+        let uSelect = prompt("Enter Your choice!")
+        uSelect = uSelect.toLowerCase();
+        let output = result(cSelect,uSelect);
+        console.log(output);
     }
 }
 
