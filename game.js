@@ -37,7 +37,7 @@ function game(){
         let uSelect = prompt("Enter Your choice!")
         uSelect = uSelect.toLowerCase();
         let output = result(cSelect,uSelect);
-        console.log(output);
+        alert(output);
         console.log("User Score : " + uScore + " CPU Score : " + cScore);
     }
     while(uScore === cScore){
@@ -46,7 +46,7 @@ function game(){
         let uSelect = prompt("Enter Your choice!")
         uSelect = uSelect.toLowerCase();
         let output = result(cSelect,uSelect);
-        console.log(output);
+        alert(output);
     }
 }
 
