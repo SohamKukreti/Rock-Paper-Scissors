@@ -32,6 +32,7 @@ function result(cSelect,uSelect){
 
 
 function game(){
+    alert("Rock Paper Scissors. Best Of 5 Wins!");
     for(let i = 0;i<5;i++){
         let cSelect = getComputerChoice();
         let uSelect = prompt("Enter Your choice!")
@@ -47,6 +48,7 @@ function game(){
         let output = result(cSelect,uSelect);
         alert(output);
     }
+    alert("Game Over. Final Score :  " + "\n" + "User Score : " + uScore + " CPU Score : " + cScore);
 }
 
 game()
