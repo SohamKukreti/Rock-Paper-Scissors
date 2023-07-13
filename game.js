@@ -1,20 +1,40 @@
 function getComputerChoice(){
-    let options = ["Rock","Paper","Scissors"]
+    let options = ["rock","paper","scissors"]
     let choice = Math.floor(Math.random()*3);
     let ans = options[choice];
     return ans;
 }
 
 function result(cSelect,uSelect){
-    if((cSelect === "Rock" && uSelect == "scissors" )||(cSelect === "Scissors" && uSelect === "paper")  || (cSelect === "Paper" && uSelect === "rock")){
-        
+    if((cSelect === "rock" && uSelect === "scissors" )||(cSelect === "rcissors" && uSelect === "paper")  || (cSelect === "paper" && uSelect === "rock")){
+        let output = "You have lost this round! " + cSelect + " beats " + uSelect;
+        return output;
     }
+    else if((uSelect === "rock" && cSelect === "scissors" )||(uSelect === "scissors" && cSelect === "paper")  || (uSelect === "paper" && cSelect === "rock")){
+        let output = "You have won this round! " + uSelect + " beats " + cSelect;
+        return output;
+
+    }
+    else if((cSelect === "rock" && uSelect === "rock" )||(cSelect === "scissors" && uSelect === "scissors")  || (cSelect === "paper" && uSelect === "paper")){
+        let output = "It's a draw!";
+        return output;
+    }
+    else{
+        return "Wrong Input";
+    }
+
 }
 
 
 function game(){
-    let ans = getComputerChoice();
-    console.log(ans);
+    for(let i = 0;i<5;i++){
+        let cSelect = getComputerChoice();
+        let uSelect = prompt("Enter Your choice!")
+        uSelect = uSelect.toLowerCase();
+        let output = result(cSelect,uSelect);
+        console.log(output);
+
+    }
 }
 
 game()
